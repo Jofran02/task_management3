@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:task_management3/app/modules/add_course/views/add_course_view.dart';
+import 'package:task_management3/app/modules/tasks/views/tasks_view.dart';
 
 class course extends StatelessWidget {
   const course({
@@ -23,10 +26,19 @@ class course extends StatelessWidget {
                       color: Colors.lightBlueAccent,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Column(
-                      children: [
-                        Text(""),
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return TasksView();
+                          },
+                        ));
+                      },
+                      child: Column(
+                        children: [
+                          Text(""),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -41,10 +53,19 @@ class course extends StatelessWidget {
                     color: Colors.redAccent,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Column(
-                    children: [
-                      Text(""),
-                    ],
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return TasksView();
+                        },
+                      ));
+                    },
+                    child: Column(
+                      children: [
+                        Text(""),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -64,10 +85,19 @@ class course extends StatelessWidget {
                       color: Colors.purpleAccent,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Column(
-                      children: [
-                        Text(""),
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return TasksView();
+                          },
+                        ));
+                      },
+                      child: Column(
+                        children: [
+                          Text(""),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -80,10 +110,19 @@ class course extends StatelessWidget {
                       color: Colors.lightBlue,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Column(
-                      children: [
-                        Text(""),
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return TasksView();
+                          },
+                        ));
+                      },
+                      child: Column(
+                        children: [
+                          Text(""),
+                        ],
+                      ),
                     ),
                   ),
                 ],

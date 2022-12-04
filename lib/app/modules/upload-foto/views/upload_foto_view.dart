@@ -47,10 +47,15 @@ class UploadFotoView extends GetView<UploadFotoController> {
             Padding(
               padding: EdgeInsets.all(30),
             ),
-            FloatingActionButton.extended(
-              onPressed: () => Get.toNamed(Routes.HOME),
-              label: const Text("Save"),
-            ),
+            Container(
+              child: Column(
+                children: [
+                  ElevatedButton(
+                      onPressed: () => Get.toNamed(Routes.HOME),
+                      child: Text("Save")),
+                ],
+              ),
+            )
           ],
         ),
       ),
