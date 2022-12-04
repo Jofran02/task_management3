@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -9,6 +11,8 @@ import 'package:task_management3/app/routes/app_pages.dart';
 import '../controllers/tasks_controller.dart';
 
 class TasksView extends GetView<TasksController> {
+  final StreamController<bool> _checkBoxController = StreamController();
+  Stream<bool> get _checkBoxStream => _checkBoxController.stream;
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -109,12 +113,19 @@ class TasksView extends GetView<TasksController> {
                           ),
                           Column(
                             children: [
-                              Checkbox(
-                                value: isChecked,
-                                onChanged: (bool? newValue) {
-                                  isChecked = newValue!;
-                                },
-                              ),
+                              StreamBuilder(
+                                  stream: _checkBoxStream,
+                                  initialData: false,
+                                  builder: (BuildContext context,
+                                      AsyncSnapshot<bool> snapshot) {
+                                    return Checkbox(
+                                      value: snapshot.data,
+                                      onChanged: (changedValue) {
+                                        _checkBoxController.sink
+                                            .add(changedValue!);
+                                      },
+                                    );
+                                  }),
                             ],
                           ),
                         ],
