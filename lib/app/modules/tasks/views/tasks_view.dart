@@ -47,7 +47,7 @@ class TasksView extends GetView<TasksController> {
                       Column(
                         children: [
                           Text(
-                            "Pemrograman Aplikasi Mobile",
+                            "Pengembangan Aplikasi Mobile",
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
