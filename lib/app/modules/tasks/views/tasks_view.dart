@@ -9,6 +9,7 @@ import 'package:task_management3/app/routes/app_pages.dart';
 import '../controllers/tasks_controller.dart';
 
 class TasksView extends GetView<TasksController> {
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +20,8 @@ class TasksView extends GetView<TasksController> {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 78),
-                  margin: EdgeInsets.all(20),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  margin: EdgeInsets.all(10),
                   child: Row(
                     children: [
                       InkWell(
@@ -36,19 +37,22 @@ class TasksView extends GetView<TasksController> {
                           size: 40,
                         ),
                       ),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Column(
                         children: [
                           Text(
-                            "Course",
+                            "Pemrograman Aplikasi Mobile",
                             style: TextStyle(
-                                fontSize: 36,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
                           Text(
-                            "Dosen",
+                            "Reza Ilyasa M.Kom.",
                             style: TextStyle(
-                                fontSize: 28,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
@@ -58,8 +62,8 @@ class TasksView extends GetView<TasksController> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(
-                      left: 30, right: 100, top: 5, bottom: 100),
+                  padding:
+                      EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 100),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
@@ -88,112 +92,189 @@ class TasksView extends GetView<TasksController> {
                           ],
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        height: 50,
-                        width: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.redAccent,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            const Text(""),
-                          ],
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                height: 50,
+                                width: 270,
+                                decoration: BoxDecoration(
+                                  color: Colors.redAccent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Checkbox(
+                                value: isChecked,
+                                onChanged: (bool? newValue) {
+                                  isChecked = newValue!;
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        height: 50,
-                        width: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.lightBlueAccent,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            const Text(""),
-                          ],
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                height: 50,
+                                width: 270,
+                                decoration: BoxDecoration(
+                                  color: Colors.lightBlueAccent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Checkbox(
+                                value: isChecked,
+                                onChanged: (bool? newValue) {
+                                  isChecked = newValue!;
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        height: 50,
-                        width: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.purpleAccent,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            const Text(""),
-                          ],
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                height: 50,
+                                width: 270,
+                                decoration: BoxDecoration(
+                                  color: Colors.purpleAccent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Checkbox(
+                                value: isChecked,
+                                onChanged: (bool? newValue) {
+                                  isChecked = newValue!;
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        height: 50,
-                        width: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.yellowAccent,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            const Text(""),
-                          ],
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                height: 50,
+                                width: 270,
+                                decoration: BoxDecoration(
+                                  color: Colors.yellowAccent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Checkbox(
+                                value: isChecked,
+                                onChanged: (bool? newValue) {
+                                  isChecked = newValue!;
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        height: 50,
-                        width: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.orangeAccent,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            const Text(""),
-                          ],
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                height: 50,
+                                width: 270,
+                                decoration: BoxDecoration(
+                                  color: Colors.orangeAccent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Checkbox(
+                                value: isChecked,
+                                onChanged: (bool? newValue) {
+                                  isChecked = newValue!;
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 40,
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 50),
-                        padding: const EdgeInsets.all(10),
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return AddTasksView();
-                              },
-                            ));
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Ionicons.add,
-                                size: 60,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 55),
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 50),
+                              padding: const EdgeInsets.all(10),
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return AddTasksView();
+                                    },
+                                  ));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Ionicons.add,
+                                      size: 60,
+                                    ),
+                                    Text(""),
+                                  ],
+                                ),
                               ),
-                              Text(""),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
