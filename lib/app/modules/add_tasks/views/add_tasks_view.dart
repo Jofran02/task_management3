@@ -1,3 +1,4 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class AddTasksView extends GetView<AddTasksController> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(left: 30, top: 100),
+                padding: const EdgeInsets.only(left: 30, top: 100),
                 child: Row(
                   children: [
                     InkWell(
@@ -27,18 +28,18 @@ class AddTasksView extends GetView<AddTasksController> {
                           },
                         ));
                       },
-                      child: Icon(
+                      child: const Icon(
                         Ionicons.arrow_back_outline,
                         size: 40,
                       ),
                     ),
-                    SizedBox(
-                      width: 40,
+                    const SizedBox(
+                      width: 10,
                     ),
                     Column(
                       children: [
-                        Text(
-                          'Add Tasks',
+                        const Text(
+                          'Tambah Tugas',
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         ),
@@ -47,12 +48,12 @@ class AddTasksView extends GetView<AddTasksController> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
-                padding:
-                    EdgeInsets.only(left: 50, top: 55, right: 50, bottom: 30),
+                padding: const EdgeInsets.only(
+                    left: 50, top: 55, right: 50, bottom: 30),
                 child: Column(
                   children: [
                     TextFormField(
@@ -62,7 +63,7 @@ class AddTasksView extends GetView<AddTasksController> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
@@ -72,7 +73,7 @@ class AddTasksView extends GetView<AddTasksController> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
@@ -82,7 +83,7 @@ class AddTasksView extends GetView<AddTasksController> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
@@ -92,15 +93,26 @@ class AddTasksView extends GetView<AddTasksController> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 100,
                     ),
                     Container(
+                      padding: const EdgeInsets.only(
+                          left: 40, right: 40, top: 20, bottom: 20),
                       child: Column(
                         children: [
                           ElevatedButton(
-                              onPressed: () => Get.toNamed(Routes.TASKS),
-                              child: Text("Save")),
+                            onPressed: () {
+                              CoolAlert.show(
+                                  context: context,
+                                  type: CoolAlertType.success,
+                                  title: "Berhasil Menambahkan Tugas",
+                                  text: "Tugas baru telah ditambahkan",
+                                  onConfirmBtnTap: () => Navigator.pushNamed(
+                                      context, Routes.TASKS));
+                            },
+                            child: const Text("Simpan"),
+                          ),
                         ],
                       ),
                     ),

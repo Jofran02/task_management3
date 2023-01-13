@@ -1,3 +1,4 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -93,13 +94,22 @@ class RegisterView extends GetView<RegisterController> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 40, right: 40, top: 20, bottom: 20),
                         child: Column(
                           children: [
                             ElevatedButton(
-                              onPressed: () => Get.toNamed(Routes.LOGIN),
-                              child: Text("Register"),
+                              onPressed: () {
+                                CoolAlert.show(
+                                    context: context,
+                                    type: CoolAlertType.success,
+                                    title: "Berhasil Membuat Akun",
+                                    text:
+                                        "Selamat anda telah membuat akun di Task Management",
+                                    onConfirmBtnTap: () => Navigator.pushNamed(
+                                        context, Routes.LOGIN));
+                              },
+                              child: const Text("Register"),
                             ),
                           ],
                         ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:task_management3/app/modules/add_tasks/views/add_tasks_view.dart';
+import 'package:task_management3/app/modules/description_tasks/views/description_tasks_view.dart';
 import 'package:task_management3/app/modules/home/views/home_view.dart';
 import 'package:task_management3/app/routes/app_pages.dart';
 
@@ -24,8 +25,9 @@ class TasksView extends GetView<TasksController> {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  margin: EdgeInsets.all(10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  margin: const EdgeInsets.all(10),
                   child: Row(
                     children: [
                       InkWell(
@@ -36,16 +38,16 @@ class TasksView extends GetView<TasksController> {
                             },
                           ));
                         },
-                        child: Icon(
+                        child: const Icon(
                           Ionicons.arrow_back_outline,
                           size: 40,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Column(
-                        children: [
+                        children: const [
                           Text(
                             "Pengembangan Aplikasi Mobile",
                             style: TextStyle(
@@ -66,8 +68,8 @@ class TasksView extends GetView<TasksController> {
                   ),
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 100),
+                  padding: const EdgeInsets.only(
+                      left: 30, right: 30, top: 5, bottom: 100),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
@@ -77,20 +79,20 @@ class TasksView extends GetView<TasksController> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                             ),
                             Row(
-                              children: [
+                              children: const [
                                 Text(
-                                  "Tasks",
+                                  "Tugas",
                                   style: TextStyle(
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                           ],
@@ -100,13 +102,22 @@ class TasksView extends GetView<TasksController> {
                         children: [
                           Column(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                height: 50,
-                                width: 270,
-                                decoration: BoxDecoration(
-                                  color: Colors.redAccent,
-                                  borderRadius: BorderRadius.circular(10),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return DescriptionTasksView();
+                                    },
+                                  ));
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  height: 50,
+                                  width: 270,
+                                  decoration: BoxDecoration(
+                                    color: Colors.redAccent,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
                               ),
                             ],
@@ -130,20 +141,29 @@ class TasksView extends GetView<TasksController> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
                           Column(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                height: 50,
-                                width: 270,
-                                decoration: BoxDecoration(
-                                  color: Colors.lightBlueAccent,
-                                  borderRadius: BorderRadius.circular(10),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return DescriptionTasksView();
+                                    },
+                                  ));
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  height: 50,
+                                  width: 270,
+                                  decoration: BoxDecoration(
+                                    color: Colors.lightBlueAccent,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
                               ),
                             ],
@@ -160,20 +180,29 @@ class TasksView extends GetView<TasksController> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
                           Column(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                height: 50,
-                                width: 270,
-                                decoration: BoxDecoration(
-                                  color: Colors.purpleAccent,
-                                  borderRadius: BorderRadius.circular(10),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return DescriptionTasksView();
+                                    },
+                                  ));
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  height: 50,
+                                  width: 270,
+                                  decoration: BoxDecoration(
+                                    color: Colors.purpleAccent,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
                               ),
                             ],
@@ -190,20 +219,29 @@ class TasksView extends GetView<TasksController> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
                           Column(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                height: 50,
-                                width: 270,
-                                decoration: BoxDecoration(
-                                  color: Colors.yellowAccent,
-                                  borderRadius: BorderRadius.circular(10),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return DescriptionTasksView();
+                                    },
+                                  ));
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  height: 50,
+                                  width: 270,
+                                  decoration: BoxDecoration(
+                                    color: Colors.yellowAccent,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
                               ),
                             ],
@@ -220,20 +258,29 @@ class TasksView extends GetView<TasksController> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
                           Column(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                height: 50,
-                                width: 270,
-                                decoration: BoxDecoration(
-                                  color: Colors.orangeAccent,
-                                  borderRadius: BorderRadius.circular(10),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return DescriptionTasksView();
+                                    },
+                                  ));
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  height: 50,
+                                  width: 270,
+                                  decoration: BoxDecoration(
+                                    color: Colors.orangeAccent,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
                               ),
                             ],
@@ -250,7 +297,7 @@ class TasksView extends GetView<TasksController> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Padding(
@@ -258,7 +305,7 @@ class TasksView extends GetView<TasksController> {
                         child: Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left: 50),
+                              margin: const EdgeInsets.only(left: 50),
                               padding: const EdgeInsets.all(10),
                               height: 100,
                               width: 100,
@@ -275,7 +322,7 @@ class TasksView extends GetView<TasksController> {
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Icon(
                                       Ionicons.add,
                                       size: 60,

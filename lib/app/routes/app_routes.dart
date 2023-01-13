@@ -13,6 +13,7 @@ abstract class Routes {
   static const TASKS = _Paths.TASKS;
   static const ADD_TASKS = _Paths.ADD_TASKS;
   static const PROFIL = _Paths.PROFIL;
+  static const DESCRIPTION_TASKS = _Paths.DESCRIPTION_TASKS;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const TASKS = '/tasks';
   static const ADD_TASKS = '/add-tasks';
   static const PROFIL = '/profil';
+  static const DESCRIPTION_TASKS = '/description-tasks';
 }

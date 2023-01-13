@@ -1,3 +1,4 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -16,24 +17,25 @@ class LoginView extends GetView<LoginController> {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 78),
-                  margin: EdgeInsets.all(20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 78),
+                  margin: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         "TASK MANAGEMENT",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.only(left: 50, right: 50, top: 5, bottom: 100),
+                  padding: const EdgeInsets.only(
+                      left: 50, right: 50, top: 5, bottom: 100),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
@@ -42,13 +44,13 @@ class LoginView extends GetView<LoginController> {
                       Container(
                         child: Column(
                           children: [
-                            Text(
+                            const Text(
                               "Selamat Datang di Task Management",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             ),
-                            Text(
-                              "Silahkan Login",
+                            const Text(
+                              "Silahkan Masuk",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             )
@@ -56,7 +58,7 @@ class LoginView extends GetView<LoginController> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 10, top: 55, right: 10, bottom: 30),
                         child: Column(
                           children: [
@@ -68,7 +70,7 @@ class LoginView extends GetView<LoginController> {
                                       borderRadius:
                                           BorderRadius.circular(5.0))),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             TextFormField(
                               decoration: InputDecoration(
                                   hintText: "Masukan Password Anda",
@@ -77,28 +79,37 @@ class LoginView extends GetView<LoginController> {
                                       borderRadius:
                                           BorderRadius.circular(5.0))),
                             ),
-                            SizedBox(height: 50),
+                            const SizedBox(height: 50),
                           ],
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 40, right: 40, top: 20, bottom: 20),
                         child: Column(
                           children: [
                             ElevatedButton(
-                              onPressed: () => Get.toNamed(Routes.UPLOAD_FOTO),
-                              child: const Text("Login"),
+                              onPressed: () {
+                                CoolAlert.show(
+                                    context: context,
+                                    type: CoolAlertType.success,
+                                    title: "Berhasil Masuk",
+                                    text:
+                                        "Selamat anda telah masuk di Task Managament",
+                                    onConfirmBtnTap: () => Navigator.pushNamed(
+                                        context, Routes.UPLOAD_FOTO));
+                              },
+                              child: const Text("Masuk"),
                             ),
                           ],
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 60, right: 60, top: 60, bottom: 10),
                         child: Column(
                           children: [
-                            Text(
+                            const Text(
                               "Belum Punya Akun?",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.bold),
@@ -106,7 +117,7 @@ class LoginView extends GetView<LoginController> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   "Silahkan ",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -118,7 +129,7 @@ class LoginView extends GetView<LoginController> {
                                       TextButton(
                                           onPressed: () =>
                                               Get.toNamed(Routes.REGISTER),
-                                          child: Text("Register")),
+                                          child: const Text("Daftar")),
                                     ],
                                   ),
                                 ),

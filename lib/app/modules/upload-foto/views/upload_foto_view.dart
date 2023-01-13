@@ -11,21 +11,21 @@ class UploadFotoView extends GetView<UploadFotoController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(left: 40, top: 60),
+        padding: const EdgeInsets.only(left: 40, top: 60),
         child: Column(
           children: [
-            Text(
+            const Text(
               "Silahkan Upload Foto Profil",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Kamu",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Container(
@@ -36,7 +36,7 @@ class UploadFotoView extends GetView<UploadFotoController> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(30)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Icon(
                     Ionicons.add,
                     size: 60,
@@ -44,17 +44,15 @@ class UploadFotoView extends GetView<UploadFotoController> {
                 ],
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(30),
             ),
-            Container(
-              child: Column(
-                children: [
-                  ElevatedButton(
-                      onPressed: () => Get.toNamed(Routes.HOME),
-                      child: Text("Save")),
-                ],
-              ),
+            Column(
+              children: [
+                ElevatedButton(
+                    onPressed: () => Get.toNamed(Routes.HOME),
+                    child: const Text("Simpan")),
+              ],
             )
           ],
         ),

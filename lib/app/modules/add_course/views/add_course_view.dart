@@ -1,3 +1,4 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class AddCourseView extends GetView<AddCourseController> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(left: 30, top: 100),
+                padding: const EdgeInsets.only(left: 30, top: 100),
                 child: Column(
                   children: [
                     Row(
@@ -30,16 +31,16 @@ class AddCourseView extends GetView<AddCourseController> {
                               },
                             ));
                           },
-                          child: Icon(
+                          child: const Icon(
                             Ionicons.arrow_back_outline,
                             size: 40,
                           ),
                         ),
-                        SizedBox(
-                          width: 40,
+                        const SizedBox(
+                          width: 10,
                         ),
-                        Text(
-                          'Add Course',
+                        const Text(
+                          'Tambah Mata Kuliah',
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         ),
@@ -48,12 +49,12 @@ class AddCourseView extends GetView<AddCourseController> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Container(
-                padding:
-                    EdgeInsets.only(left: 50, top: 55, right: 50, bottom: 30),
+                padding: const EdgeInsets.only(
+                    left: 50, top: 55, right: 50, bottom: 30),
                 child: Column(
                   children: [
                     TextFormField(
@@ -63,7 +64,7 @@ class AddCourseView extends GetView<AddCourseController> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
@@ -73,15 +74,26 @@ class AddCourseView extends GetView<AddCourseController> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0))),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 100,
                     ),
                     Container(
+                      padding: const EdgeInsets.only(
+                          left: 40, right: 40, top: 20, bottom: 20),
                       child: Column(
                         children: [
                           ElevatedButton(
-                              onPressed: () => Get.toNamed(Routes.HOME),
-                              child: Text("Save")),
+                            onPressed: () {
+                              CoolAlert.show(
+                                  context: context,
+                                  type: CoolAlertType.success,
+                                  title: "Berhasil Menambahkan Matkul",
+                                  text: "Mata Kuliah telah berhasil ditambah",
+                                  onConfirmBtnTap: () => Navigator.pushNamed(
+                                      context, Routes.HOME));
+                            },
+                            child: const Text("Simpan"),
+                          ),
                         ],
                       ),
                     ),
