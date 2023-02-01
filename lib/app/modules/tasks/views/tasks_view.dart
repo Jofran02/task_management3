@@ -7,7 +7,6 @@ import 'package:ionicons/ionicons.dart';
 import 'package:task_management3/app/modules/add_tasks/views/add_tasks_view.dart';
 import 'package:task_management3/app/modules/description_tasks/views/description_tasks_view.dart';
 import 'package:task_management3/app/modules/home/views/home_view.dart';
-import 'package:task_management3/app/routes/app_pages.dart';
 
 import '../controllers/tasks_controller.dart';
 

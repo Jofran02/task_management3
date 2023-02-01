@@ -18,8 +18,6 @@ import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/tasks/bindings/tasks_binding.dart';
 import '../modules/tasks/views/tasks_view.dart';
-import '../modules/upload-foto/bindings/upload_foto_binding.dart';
-import '../modules/upload-foto/views/upload_foto_view.dart';
 
 part 'app_routes.dart';
 
@@ -38,11 +36,6 @@ class AppPages {
       name: _Paths.ADD_COURSE,
       page: () => AddCourseView(),
       binding: AddCourseBinding(),
-    ),
-    GetPage(
-      name: _Paths.UPLOAD_FOTO,
-      page: () => UploadFotoView(),
-      binding: UploadFotoBinding(),
     ),
     GetPage(
       name: _Paths.INTRO,

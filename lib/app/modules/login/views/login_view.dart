@@ -2,11 +2,14 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:task_management3/app/data/controller/auth_controller.dart';
 import 'package:task_management3/app/routes/app_pages.dart';
 
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
+  final AuthC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 Container(
                   padding: const EdgeInsets.only(
-                      left: 50, right: 50, top: 5, bottom: 100),
+                      left: 50, right: 50, top: 5, bottom: 80),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
@@ -79,7 +82,6 @@ class LoginView extends GetView<LoginController> {
                                       borderRadius:
                                           BorderRadius.circular(5.0))),
                             ),
-                            const SizedBox(height: 50),
                           ],
                         ),
                       ),
@@ -97,10 +99,18 @@ class LoginView extends GetView<LoginController> {
                                     text:
                                         "Selamat anda telah masuk di Task Managament",
                                     onConfirmBtnTap: () => Navigator.pushNamed(
-                                        context, Routes.UPLOAD_FOTO));
+                                        context, Routes.HOME));
                               },
                               child: const Text("Masuk"),
                             ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            FloatingActionButton.extended(
+                              onPressed: () => AuthC.signInWithGoogle(),
+                              label: Text("Masuk dengan Google"),
+                              icon: Icon(Ionicons.logo_google),
+                            )
                           ],
                         ),
                       ),

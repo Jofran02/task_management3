@@ -19,7 +19,7 @@ class course extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 30),
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
@@ -42,11 +42,11 @@ class course extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 30,
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   height: 150,
                   width: 150,
                   decoration: BoxDecoration(
@@ -63,14 +63,14 @@ class course extends StatelessWidget {
                     },
                     child: Column(
                       children: [
-                        Text(""),
+                        const Text(""),
                       ],
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -78,7 +78,7 @@ class course extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
@@ -95,12 +95,12 @@ class course extends StatelessWidget {
                       },
                       child: Column(
                         children: [
-                          Text(""),
+                          const Text(""),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 30,
                   ),
                   Container(
@@ -120,7 +120,7 @@ class course extends StatelessWidget {
                       },
                       child: Column(
                         children: [
-                          Text(""),
+                          const Text(""),
                         ],
                       ),
                     ),

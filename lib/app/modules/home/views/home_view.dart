@@ -1,11 +1,8 @@
-import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:task_management3/app/modules/add_course/views/add_course_view.dart';
-import 'package:task_management3/app/modules/intro/views/intro_view.dart';
-import 'package:task_management3/app/modules/login/views/login_view.dart';
+import 'package:task_management3/app/data/controller/auth_controller.dart';
 import 'package:task_management3/app/routes/app_pages.dart';
 import 'package:task_management3/app/utils/widget/bottom_navigation.dart';
 import 'package:task_management3/app/utils/widget/course.dart';
@@ -13,6 +10,7 @@ import 'package:task_management3/app/utils/widget/course.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
+  final AuthC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,8 +59,7 @@ class HomeView extends GetView<HomeController> {
                                       child: const Text("Tidak"),
                                     ),
                                     confirm: ElevatedButton(
-                                      onPressed: () =>
-                                          Get.toNamed(Routes.LOGIN),
+                                      onPressed: () => AuthC.logout(),
                                       child: const Text("Ya"),
                                     ),
                                   );
