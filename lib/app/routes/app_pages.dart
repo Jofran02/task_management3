@@ -6,6 +6,8 @@ import '../modules/add_tasks/bindings/add_tasks_binding.dart';
 import '../modules/add_tasks/views/add_tasks_view.dart';
 import '../modules/description_tasks/bindings/description_tasks_binding.dart';
 import '../modules/description_tasks/views/description_tasks_view.dart';
+import '../modules/edit_profil/bindings/edit_profil_binding.dart';
+import '../modules/edit_profil/views/edit_profil_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro/bindings/intro_binding.dart';
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.DESCRIPTION_TASKS,
       page: () => DescriptionTasksView(),
       binding: DescriptionTasksBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFIL,
+      page: () => const EditProfilView(),
+      binding: EditProfilBinding(),
     ),
   ];
 }

@@ -5,6 +5,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:task_management3/app/data/controller/auth_controller.dart';
 import 'package:task_management3/app/modules/home/views/home_view.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/profil_controller.dart';
 
 class ProfilView extends GetView<ProfilController> {
@@ -98,6 +99,17 @@ class ProfilView extends GetView<ProfilController> {
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 ],
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () => Get.toNamed(Routes.EDIT_PROFIL),
+              label: const Text("Edit Profil"),
+              icon: const Icon(
+                Ionicons.people,
+                color: Colors.white,
               ),
             ),
           ],
