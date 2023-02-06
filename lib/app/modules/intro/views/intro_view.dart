@@ -2,8 +2,6 @@ import 'dart:async';
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:task_management3/app/modules/home/views/home_view.dart';
 import 'package:task_management3/app/modules/login/views/login_view.dart';
 
 class intro extends StatefulWidget {
