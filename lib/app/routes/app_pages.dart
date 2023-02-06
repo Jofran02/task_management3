@@ -41,7 +41,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.INTRO,
-      page: () => intro(),
+      page: () => const Intro(),
       binding: IntroBinding(),
     ),
     GetPage(

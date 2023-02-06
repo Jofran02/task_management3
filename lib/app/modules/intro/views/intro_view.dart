@@ -1,14 +1,17 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:task_management3/app/modules/login/views/login_view.dart';
 
-class intro extends StatefulWidget {
-  _intro createState() => _intro();
+class Intro extends StatefulWidget {
+  const Intro({super.key});
+
+  @override
+  State<Intro> createState() => _Intro();
 }
 
-class _intro extends State<intro> {
+class _Intro extends State<Intro> {
+  @override
   void initState() {
     super.initState();
     introStart();
@@ -34,11 +37,11 @@ class _intro extends State<intro> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             Text(
               "Task Management",
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 25,
                   fontWeight: FontWeight.bold),
             )

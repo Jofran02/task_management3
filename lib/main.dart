@@ -23,7 +23,7 @@ Future<void> main() async {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Application",
-        initialRoute: snapshot.data != null ? Routes.HOME : Routes.LOGIN,
+        initialRoute: AppPages.INITIAL,
         getPages: AppPages.routes,
       );
     },

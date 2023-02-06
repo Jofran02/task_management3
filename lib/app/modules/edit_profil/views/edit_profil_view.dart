@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 
 import '../../../routes/app_pages.dart';
+import '../../../utils/widget/take_picture.dart';
 import '../../profil/views/profil_view.dart';
 import '../controllers/edit_profil_controller.dart';
 
@@ -51,6 +52,16 @@ class EditProfilView extends GetView<EditProfilController> {
               ),
               const SizedBox(
                 height: 100,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
+                onPressed: () async {
+                  const AmbilGambar();
+                },
+                child: const Text(
+                  "Upload Gambar",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
               Container(
                 padding: const EdgeInsets.only(
