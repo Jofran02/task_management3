@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,9 @@ import 'package:task_management3/app/utils/widget/bottom_navigation.dart';
 import '../controllers/add_course_controller.dart';
 
 class AddCourseView extends GetView<AddCourseController> {
+  TextEditingController controller_mk = TextEditingController();
+  TextEditingController controller_namadosen = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +62,7 @@ class AddCourseView extends GetView<AddCourseController> {
                 child: Column(
                   children: [
                     TextFormField(
+                      controller: controller_mk,
                       decoration: InputDecoration(
                           hintText: "Masukan Mata Kuliah",
                           labelText: "Mata Kuliah",
@@ -68,6 +73,7 @@ class AddCourseView extends GetView<AddCourseController> {
                       height: 20,
                     ),
                     TextFormField(
+                      controller: controller_namadosen,
                       decoration: InputDecoration(
                           hintText: "Masukan Nama Dosen",
                           labelText: "Nama Dosen",
@@ -84,6 +90,12 @@ class AddCourseView extends GetView<AddCourseController> {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              FirebaseFirestore.instance
+                                  .collection('matakuliah')
+                                  .add({
+                                'nama_dosen': controller_namadosen.text,
+                                'nama_mk': controller_mk.text
+                              });
                               CoolAlert.show(
                                   context: context,
                                   type: CoolAlertType.success,

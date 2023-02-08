@@ -24,7 +24,7 @@ class ShowDataTable extends StatelessWidget {
       appBar: AppBar(
         title: InkWell(
           child: Row(
-            children: const [
+            children: [
               Icon(
                 Ionicons.arrow_back_outline,
                 size: 30,
@@ -33,15 +33,13 @@ class ShowDataTable extends StatelessWidget {
               SizedBox(
                 width: 10,
               ),
-              Text("Tugas PAM"),
+              Text(Get.arguments['nama_mk']),
             ],
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) {
-                return TasksView();
-              },
-            ));
+            Get.to(TasksView(), arguments: {
+              "nama_mk": Get.arguments['nama_mk'],
+            });
           },
         ),
       ),

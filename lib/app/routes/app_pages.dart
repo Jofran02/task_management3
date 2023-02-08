@@ -26,7 +26,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const iNITIAL = Routes.INTRO;
+  static const iNITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
@@ -76,7 +76,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.EDIT_PROFIL,
-      page: () => const EditProfilView(),
+      page: () => EditProfilView(),
       binding: EditProfilBinding(),
     ),
   ];

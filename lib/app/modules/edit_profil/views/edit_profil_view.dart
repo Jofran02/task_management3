@@ -8,9 +8,13 @@ import '../../../routes/app_pages.dart';
 import '../../../utils/widget/take_picture.dart';
 import '../../profil/views/profil_view.dart';
 import '../controllers/edit_profil_controller.dart';
+import '../../../utils/widget/upload.dart';
 
 class EditProfilView extends GetView<EditProfilController> {
-  const EditProfilView({Key? key}) : super(key: key);
+  EditProfilView({Key? key}) : super(key: key);
+
+  final EditProfilController controller = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,10 +57,19 @@ class EditProfilView extends GetView<EditProfilController> {
               const SizedBox(
                 height: 100,
               ),
+              GetBuilder<EditProfilController>(
+                init: EditProfilController(),
+                initState: (_) {},
+                builder: (_) {
+                  return Container(
+                    child: Image.network(controller.namafile),
+                  );
+                },
+              ),
               TextButton(
                 style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
-                onPressed: () async {
-                  const AmbilGambar();
+                onPressed: () {
+                  controller.pickUpImage();
                 },
                 child: const Text(
                   "Upload Gambar",

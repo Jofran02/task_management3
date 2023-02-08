@@ -6,10 +6,12 @@ import 'package:task_management3/app/data/controller/auth_controller.dart';
 import 'package:task_management3/app/modules/home/views/home_view.dart';
 
 import '../../../routes/app_pages.dart';
+import '../../edit_profil/controllers/edit_profil_controller.dart';
 import '../controllers/profil_controller.dart';
 
 class ProfilView extends GetView<ProfilController> {
   final AuthC = Get.find<AuthController>();
+  final EditProfilController ccontroller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +107,10 @@ class ProfilView extends GetView<ProfilController> {
               height: 50,
             ),
             FloatingActionButton.extended(
-              onPressed: () => Get.toNamed(Routes.EDIT_PROFIL),
+              onPressed: () {
+                // ccontroller.pickUpImage();
+                Get.toNamed(Routes.EDIT_PROFIL);
+              },
               label: const Text("Edit Profil"),
               icon: const Icon(
                 Ionicons.people,

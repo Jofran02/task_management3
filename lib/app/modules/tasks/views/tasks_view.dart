@@ -10,7 +10,9 @@ import 'package:task_management3/app/modules/home/views/home_view.dart';
 
 import '../controllers/tasks_controller.dart';
 
-class TasksView extends GetView<TasksController> {
+class TasksView extends StatelessWidget {
+  late final String nama_dosen;
+  late final String nama_mk;
   final StreamController<bool> _checkBoxController = StreamController();
   Stream<bool> get _checkBoxStream => _checkBoxController.stream;
   bool isChecked = false;
@@ -28,6 +30,7 @@ class TasksView extends GetView<TasksController> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   margin: const EdgeInsets.all(10),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
                         onTap: () {
@@ -46,15 +49,16 @@ class TasksView extends GetView<TasksController> {
                         width: 10,
                       ),
                       Column(
-                        children: const [
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
                           Text(
-                            "Pengembangan Aplikasi Mobile",
-                            style: TextStyle(
+                            Get.arguments['nama_mk'],
+                            style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
-                          Text(
+                          const Text(
                             "Reza Ilyasa M.Kom.",
                             style: TextStyle(
                                 fontSize: 18,
@@ -103,21 +107,21 @@ class TasksView extends GetView<TasksController> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return DescriptionTasksView();
-                                    },
-                                  ));
+                                  Get.to(DescriptionTasksView(), arguments: {
+                                    "nama_mk": Get.arguments['nama_mk'],
+                                  });
                                 },
                                 child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  height: 50,
-                                  width: 270,
-                                  decoration: BoxDecoration(
-                                    color: Colors.redAccent,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
+                                    padding: const EdgeInsets.all(10),
+                                    height: 50,
+                                    width: 270,
+                                    decoration: BoxDecoration(
+                                      color: Colors.greenAccent,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Text(
+                                        "Membuat Ringkasan Materi",
+                                        style: TextStyle(color: Colors.black))),
                               ),
                             ],
                           ),
@@ -142,159 +146,6 @@ class TasksView extends GetView<TasksController> {
                       ),
                       const SizedBox(
                         height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return DescriptionTasksView();
-                                    },
-                                  ));
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  height: 50,
-                                  width: 270,
-                                  decoration: BoxDecoration(
-                                    color: Colors.lightBlueAccent,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Checkbox(
-                                value: isChecked,
-                                onChanged: (bool? newValue) {
-                                  isChecked = newValue!;
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return DescriptionTasksView();
-                                    },
-                                  ));
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  height: 50,
-                                  width: 270,
-                                  decoration: BoxDecoration(
-                                    color: Colors.purpleAccent,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Checkbox(
-                                value: isChecked,
-                                onChanged: (bool? newValue) {
-                                  isChecked = newValue!;
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return DescriptionTasksView();
-                                    },
-                                  ));
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  height: 50,
-                                  width: 270,
-                                  decoration: BoxDecoration(
-                                    color: Colors.yellowAccent,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Checkbox(
-                                value: isChecked,
-                                onChanged: (bool? newValue) {
-                                  isChecked = newValue!;
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return DescriptionTasksView();
-                                    },
-                                  ));
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  height: 50,
-                                  width: 270,
-                                  decoration: BoxDecoration(
-                                    color: Colors.orangeAccent,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Checkbox(
-                                value: isChecked,
-                                onChanged: (bool? newValue) {
-                                  isChecked = newValue!;
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
                       ),
                       const SizedBox(
                         height: 40,
