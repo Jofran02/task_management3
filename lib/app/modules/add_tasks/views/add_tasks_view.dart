@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_alert/cool_alert.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -11,6 +13,10 @@ import '../controllers/add_tasks_controller.dart';
 class AddTasksView extends GetView<AddTasksController> {
   @override
   Widget build(BuildContext context) {
+    final TextEditingController judulcontroller = TextEditingController();
+    final TextEditingController tglcontroller = TextEditingController();
+    final TextEditingController deskripsicontroller = TextEditingController();
+    final TextEditingController pengumpulancontroller = TextEditingController();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -22,11 +28,11 @@ class AddTasksView extends GetView<AddTasksController> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return TasksView();
-                          },
-                        ));
+                        Get.to(TasksView(), arguments: {
+                          "nama_mk": Get.arguments['nama_mk'],
+                          "nama_dosen": Get.arguments['nama_dosen'],
+                          "dosenid": Get.arguments['dosenid']
+                        });
                       },
                       child: const Icon(
                         Ionicons.arrow_back_outline,
@@ -43,6 +49,7 @@ class AddTasksView extends GetView<AddTasksController> {
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         ),
+                        // Text(Get.arguments['nama_mk'])
                       ],
                     ),
                   ],
@@ -57,6 +64,7 @@ class AddTasksView extends GetView<AddTasksController> {
                 child: Column(
                   children: [
                     TextFormField(
+                      controller: judulcontroller,
                       decoration: InputDecoration(
                           hintText: "Masukan Judul Tugas",
                           labelText: "Judul Tugas",
@@ -67,6 +75,7 @@ class AddTasksView extends GetView<AddTasksController> {
                       height: 20,
                     ),
                     TextFormField(
+                      controller: tglcontroller,
                       decoration: InputDecoration(
                           hintText: "Masukan Deadline Tugas",
                           labelText: "Deadline Tugas",
@@ -77,6 +86,7 @@ class AddTasksView extends GetView<AddTasksController> {
                       height: 20,
                     ),
                     TextFormField(
+                      controller: deskripsicontroller,
                       decoration: InputDecoration(
                           hintText: "Masukan Deskripsi Tugas",
                           labelText: "Deskripsi Tugas",
@@ -87,6 +97,7 @@ class AddTasksView extends GetView<AddTasksController> {
                       height: 20,
                     ),
                     TextFormField(
+                      controller: pengumpulancontroller,
                       decoration: InputDecoration(
                           hintText: "Masukan Metode Pengumpulan",
                           labelText: "Metode Pengumpulan",
@@ -103,6 +114,20 @@ class AddTasksView extends GetView<AddTasksController> {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              FirebaseFirestore.instance
+                                  .collection('tugas')
+                                  .add({
+                                'judul': judulcontroller.text,
+                                'tgl': tglcontroller.text,
+                                'deskripsi': deskripsicontroller.text,
+                                'pengumpulan': pengumpulancontroller.text,
+                                'nama_dosen':
+                                    Get.arguments['nama_dosen'].toString(),
+                                'user': FirebaseAuth
+                                    .instance.currentUser!.displayName
+                                    .toString(),
+                                'ubah': false,
+                              });
                               CoolAlert.show(
                                   context: context,
                                   type: CoolAlertType.success,
@@ -110,6 +135,13 @@ class AddTasksView extends GetView<AddTasksController> {
                                   text: "Tugas baru telah ditambahkan",
                                   onConfirmBtnTap: () => Navigator.pushNamed(
                                       context, Routes.TASKS));
+                              // Get.to(TasksView(), arguments: {
+                              //   "nama_mk":
+                              //       Get.arguments['nama_mk'].toString(),
+                              //   "nama_dosen":
+                              //       Get.arguments['nama_dosen'],
+                              //   "dosenid": Get.arguments['dosenid']
+                              // }));
                             },
                             child: const Text("Simpan"),
                           ),

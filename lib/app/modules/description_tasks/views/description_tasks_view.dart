@@ -39,6 +39,7 @@ class ShowDataTable extends StatelessWidget {
           onTap: () {
             Get.to(TasksView(), arguments: {
               "nama_mk": Get.arguments['nama_mk'],
+              "nama_dosen": Get.arguments['nama_dosen'],
             });
           },
         ),

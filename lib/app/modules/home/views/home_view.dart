@@ -113,7 +113,7 @@ class HomeView extends GetView<HomeController> {
               ),
               Container(
                 child: const course(),
-                height: 200,
+                height: 330,
               ),
               const SizedBox(
                 height: 30,

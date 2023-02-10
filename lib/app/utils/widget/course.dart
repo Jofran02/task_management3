@@ -34,14 +34,15 @@ class course extends StatelessWidget {
                   onTap: () {
                     print(data.docs[index]['nama_mk']);
                     Get.to(TasksView(), arguments: {
-                      "nama_mk": data.docs[index]['nama_mk'],
-                      "nama_dosen": data.docs[index]['nama_dosen']
+                      "nama_mk": data.docs[index]['nama_mk'].toString(),
+                      "nama_dosen": data.docs[index]['nama_dosen'],
+                      "dosenid": data.docs[index].id
                     });
                   },
                   child: Container(
                     // height: 20,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Container(
                       child: Column(

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:task_management3/app/data/controller/auth_controller.dart';
 import 'package:task_management3/app/modules/description_tasks/controllers/description_tasks_controller.dart';
 import 'package:task_management3/app/modules/edit_profil/controllers/edit_profil_controller.dart';
+import 'package:task_management3/app/modules/tasks/controllers/tasks_controller.dart';
 import 'package:task_management3/firebase_options.dart';
 
 import 'app/routes/app_pages.dart';
@@ -18,6 +19,7 @@ Future<void> main() async {
   Get.put(AuthController(), permanent: true);
   Get.put(EditProfilController(), permanent: true);
   Get.put(DescriptionTasksController(), permanent: true);
+  Get.put(TasksController(), permanent: true);
 
   runApp(StreamBuilder(
     stream: FirebaseAuth.instance.authStateChanges(),

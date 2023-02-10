@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 class TasksController extends GetxController {
@@ -9,6 +10,7 @@ class TasksController extends GetxController {
     super.onInit();
   }
 
+  var isUbah = true.obs;
   @override
   void onReady() {
     super.onReady();
@@ -17,4 +19,24 @@ class TasksController extends GetxController {
   @override
   void onClose() {}
   void increment() => count.value++;
+  void ubah(data) {
+    FirebaseFirestore.instance.collection('tugas').doc(data).update(
+      {'ubah': true},
+    ).then((value) {
+      ubahUI();
+    });
+  }
+
+  void ubahMinus(data) {
+    FirebaseFirestore.instance.collection('tugas').doc(data).update(
+      {'ubah': false},
+    ).then((value) {
+      ubahUI();
+    });
+  }
+
+  void ubahUI() {
+    isUbah = true.obs;
+    update();
+  }
 }
