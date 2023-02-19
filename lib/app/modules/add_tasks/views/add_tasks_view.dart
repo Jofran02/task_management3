@@ -133,15 +133,14 @@ class AddTasksView extends GetView<AddTasksController> {
                                   type: CoolAlertType.success,
                                   title: "Berhasil Menambahkan Tugas",
                                   text: "Tugas baru telah ditambahkan",
-                                  onConfirmBtnTap: () => Navigator.pushNamed(
-                                      context, Routes.TASKS));
-                              // Get.to(TasksView(), arguments: {
-                              //   "nama_mk":
-                              //       Get.arguments['nama_mk'].toString(),
-                              //   "nama_dosen":
-                              //       Get.arguments['nama_dosen'],
-                              //   "dosenid": Get.arguments['dosenid']
-                              // }));
+                                  onConfirmBtnTap: () =>
+                                      Get.to(TasksView(), arguments: {
+                                        "nama_mk":
+                                            Get.arguments['nama_mk'].toString(),
+                                        "nama_dosen":
+                                            Get.arguments['nama_dosen'],
+                                        "dosenid": Get.arguments['dosenid']
+                                      }));
                             },
                             child: const Text("Simpan"),
                           ),
