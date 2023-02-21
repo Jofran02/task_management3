@@ -35,6 +35,29 @@ class course extends StatelessWidget {
                 child: Card(
                   color: Colors.lightBlueAccent,
                   child: InkWell(
+                    onLongPress: () {
+                      {
+                        Get.defaultDialog(
+                          title: "Hapus Tugas",
+                          content: const Text(
+                              "Apakah kamu ingin menghapus tugas ini?"),
+                          cancel: ElevatedButton(
+                            onPressed: () => Get.back(),
+                            child: const Text("Tidak"),
+                          ),
+                          confirm: ElevatedButton(
+                            onPressed: () => FirebaseFirestore.instance
+                                .collection('matakuliah')
+                                .doc(data.docs[index].id)
+                                .delete()
+                                .whenComplete(
+                                  () => Get.back(),
+                                ),
+                            child: const Text("Ya"),
+                          ),
+                        );
+                      }
+                    },
                     onTap: () {
                       print(data.docs[index]['nama_mk']);
                       Get.to(() => TasksView(), arguments: {

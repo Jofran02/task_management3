@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_management3/app/data/controller/auth_controller.dart';
 import 'package:task_management3/app/modules/description_tasks/controllers/description_tasks_controller.dart';
-import 'package:task_management3/app/modules/edit_profil/controllers/edit_profil_controller.dart';
 import 'package:task_management3/app/modules/tasks/controllers/tasks_controller.dart';
 import 'package:task_management3/firebase_options.dart';
 
@@ -17,7 +16,6 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Get.put(AuthController(), permanent: true);
-  Get.put(EditProfilController(), permanent: true);
   Get.put(TasksController(), permanent: true);
 
   runApp(StreamBuilder(

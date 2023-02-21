@@ -10,12 +10,12 @@ import 'package:task_management3/app/utils/widget/course.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  final AuthC = Get.find<AuthController>();
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
@@ -24,10 +24,10 @@ class HomeView extends GetView<HomeController> {
                 children: [
                   Container(
                     padding: const EdgeInsets.only(left: 50, top: 20),
-                    child: const Image(
-                      image: AssetImage("assets/images/profil.jpg"),
-                      width: 40,
+                    child: Image.network(
+                      authC.auth.currentUser!.photoURL!,
                       height: 40,
+                      width: 40,
                     ),
                   ),
                   Center(
@@ -37,16 +37,16 @@ class HomeView extends GetView<HomeController> {
                         children: [
                           Row(
                             children: [
-                              const Center(
+                              Center(
                                 child: Text(
-                                  "Hai Kyle!",
-                                  style: TextStyle(
-                                      fontSize: 25,
+                                  authC.auth.currentUser!.displayName!,
+                                  style: const TextStyle(
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
                               const SizedBox(
-                                width: 50,
+                                width: 40,
                               ),
                               GestureDetector(
                                 onTap: () {
@@ -59,7 +59,7 @@ class HomeView extends GetView<HomeController> {
                                       child: const Text("Tidak"),
                                     ),
                                     confirm: ElevatedButton(
-                                      onPressed: () => AuthC.logout(),
+                                      onPressed: () => authC.logout(),
                                       child: const Text("Ya"),
                                     ),
                                   );
@@ -94,8 +94,17 @@ class HomeView extends GetView<HomeController> {
                     color: Colors.lightGreen,
                     borderRadius: BorderRadius.circular(10)),
                 child: Column(
-                  children: [
-                    const Text(""),
+                  children: const [
+                    Text(
+                      "Task Management",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Quotes: Ayo Semangat ngerjain Tugas nya!",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),

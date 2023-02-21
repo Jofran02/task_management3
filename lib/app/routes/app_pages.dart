@@ -6,8 +6,6 @@ import '../modules/add_tasks/bindings/add_tasks_binding.dart';
 import '../modules/add_tasks/views/add_tasks_view.dart';
 import '../modules/description_tasks/bindings/description_tasks_binding.dart';
 import '../modules/description_tasks/views/description_tasks_view.dart';
-import '../modules/edit_profil/bindings/edit_profil_binding.dart';
-import '../modules/edit_profil/views/edit_profil_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro/bindings/intro_binding.dart';
@@ -16,8 +14,6 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/profil/bindings/profil_binding.dart';
 import '../modules/profil/views/profil_view.dart';
-import '../modules/register/bindings/register_binding.dart';
-import '../modules/register/views/register_view.dart';
 import '../modules/tasks/bindings/tasks_binding.dart';
 import '../modules/tasks/views/tasks_view.dart';
 
@@ -50,11 +46,6 @@ class AppPages {
       binding: LoginBinding(),
     ),
     GetPage(
-      name: _Paths.REGISTER,
-      page: () => RegisterView(),
-      binding: RegisterBinding(),
-    ),
-    GetPage(
       name: _Paths.TASKS,
       page: () => TasksView(),
       binding: TasksBinding(),
@@ -73,11 +64,6 @@ class AppPages {
       name: _Paths.DESCRIPTION_TASKS,
       page: () => DescriptionTasksView(),
       binding: DescriptionTasksBinding(),
-    ),
-    GetPage(
-      name: _Paths.EDIT_PROFIL,
-      page: () => EditProfilView(),
-      binding: EditProfilBinding(),
     ),
   ];
 }

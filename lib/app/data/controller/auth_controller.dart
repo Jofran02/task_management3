@@ -6,6 +6,7 @@ import 'package:task_management3/app/routes/app_pages.dart';
 
 class AuthController extends GetxController {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
   UserCredential? _userCredential;
   Future signInWithGoogle() async {
     // Trigger the authentication flow

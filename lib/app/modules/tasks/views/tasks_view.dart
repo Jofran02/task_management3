@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:task_management3/app/data/controller/auth_controller.dart';
 import 'package:task_management3/app/modules/add_tasks/views/add_tasks_view.dart';
 import 'package:task_management3/app/modules/description_tasks/views/description_tasks_view.dart';
 import 'package:task_management3/app/modules/home/views/home_view.dart';
@@ -21,6 +22,7 @@ class TasksView extends StatelessWidget {
   Stream<bool> get _checkBoxStream => _checkBoxController.stream;
   bool isChecked = false;
   final controller = Get.find<TasksController>();
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     Get.put(DescriptionTasksController(), permanent: true);
@@ -154,14 +156,36 @@ class TasksView extends StatelessWidget {
                                       child: Text(
                                         dataTugas.docs[index]['ubah'] == true
                                             ? "Sudah"
-                                            : "belum",
+                                            : "Belum",
                                         style: const TextStyle(
                                             color:
                                                 Color.fromARGB(255, 231, 4, 4),
                                             fontSize: 15),
                                       ),
                                     ),
-                                    title: InkWell(
+                                    title: GestureDetector(
+                                        onLongPress: () {
+                                          Get.defaultDialog(
+                                            title: "Hapus Tugas",
+                                            content: const Text(
+                                                "Apakah kamu ingin menghapus tugas ini?"),
+                                            cancel: ElevatedButton(
+                                              onPressed: () => Get.back(),
+                                              child: const Text("Tidak"),
+                                            ),
+                                            confirm: ElevatedButton(
+                                              onPressed: () => FirebaseFirestore
+                                                  .instance
+                                                  .collection('tugas')
+                                                  .doc(dataTugas.docs[index].id)
+                                                  .delete()
+                                                  .whenComplete(
+                                                    () => Get.back(),
+                                                  ),
+                                              child: const Text("Ya"),
+                                            ),
+                                          );
+                                        },
                                         onTap: () {
                                           print("object");
                                           print(dataTugas.docs[index]['tgl']);
