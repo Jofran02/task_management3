@@ -28,8 +28,8 @@ class AddTasksView extends GetView<AddTasksController> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Get.to(TasksView(), arguments: {
-                          "nama_mk": Get.arguments['nama_mk'],
+                        Get.to(() => TasksView(), arguments: {
+                          "nama_mk": Get.arguments['nama_mk'].toString(),
                           "nama_dosen": Get.arguments['nama_dosen'],
                           "dosenid": Get.arguments['dosenid']
                         });
@@ -43,8 +43,8 @@ class AddTasksView extends GetView<AddTasksController> {
                       width: 10,
                     ),
                     Column(
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           'Tambah Tugas',
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
@@ -114,6 +114,9 @@ class AddTasksView extends GetView<AddTasksController> {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              var a = Get.arguments['nama_mk'].toString();
+                              var b = Get.arguments['nama_dosen'];
+                              var c = Get.arguments['dosenid'];
                               FirebaseFirestore.instance
                                   .collection('tugas')
                                   .add({
@@ -133,14 +136,13 @@ class AddTasksView extends GetView<AddTasksController> {
                                   type: CoolAlertType.success,
                                   title: "Berhasil Menambahkan Tugas",
                                   text: "Tugas baru telah ditambahkan",
-                                  onConfirmBtnTap: () =>
-                                      Get.to(TasksView(), arguments: {
-                                        "nama_mk":
-                                            Get.arguments['nama_mk'].toString(),
-                                        "nama_dosen":
-                                            Get.arguments['nama_dosen'],
-                                        "dosenid": Get.arguments['dosenid']
-                                      }));
+                                  onConfirmBtnTap: () => {
+                                        Get.to(() => TasksView(), arguments: {
+                                          "nama_mk": a,
+                                          "nama_dosen": b,
+                                          "dosenid": c
+                                        })
+                                      });
                             },
                             child: const Text("Simpan"),
                           ),

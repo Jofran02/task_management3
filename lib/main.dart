@@ -18,7 +18,6 @@ Future<void> main() async {
   );
   Get.put(AuthController(), permanent: true);
   Get.put(EditProfilController(), permanent: true);
-  Get.put(DescriptionTasksController(), permanent: true);
   Get.put(TasksController(), permanent: true);
 
   runApp(StreamBuilder(

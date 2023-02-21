@@ -9,38 +9,16 @@ import '../controllers/description_tasks_controller.dart';
 class DescriptionTasksView extends GetView<DescriptionTasksController> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Belajar Data Table',
-      home: ShowDataTable(),
-    );
-  }
-}
-
-class ShowDataTable extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: InkWell(
           child: Row(
             children: [
-              Icon(
-                Ionicons.arrow_back_outline,
-                size: 30,
-                color: Colors.black,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(Get.arguments['nama_mk']),
+              // (Get.arguments['nama_mk']),
             ],
           ),
           onTap: () {
-            Get.to(TasksView(), arguments: {
-              "nama_mk": Get.arguments['nama_mk'],
-              "nama_dosen": Get.arguments['nama_dosen'],
-            });
+            Get.to(TasksView(), arguments: {});
           },
         ),
       ),
@@ -52,12 +30,11 @@ class ShowDataTable extends StatelessWidget {
               DataColumn(label: Text("Deskripsi")),
               DataColumn(label: Text("Pengumpulan")),
             ],
-            rows: const [
+            rows: [
               DataRow(cells: [
-                DataCell(Text('22-01-2023')),
-                DataCell(Text(
-                    'Membuat Ringkasan Materi mengenai Teknologi Informasi yang ada di kehidupan sehari-hari')),
-                DataCell(Text('Email')),
+                DataCell(Text(Get.arguments['tanggal'])),
+                DataCell(Text(Get.arguments['deskripsi'])),
+                DataCell(Text(Get.arguments['peng'])),
               ]),
             ],
           )),
